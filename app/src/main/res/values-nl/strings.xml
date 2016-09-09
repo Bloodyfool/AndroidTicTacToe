@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Instellingen</string>
+    <string name="pref_default_display_name">Johan Smit</string>
+    <string name="pref_description_social_recommendations">Aangeraden personen om te contacteren gebaseerd op je berichtengeschiedenis</string>
+    <string name="pref_header_data_sync"><![CDATA[Data & synchronisatie]]></string>
+    <string name="pref_header_general">Algemeen</string>
+    <string name="pref_header_notifications">Notificaties</string>
+    <string name="pref_ringtone_silent">Stil</string>
+    <string name="pref_title_display_name">Gebruikersnaam</string>
+    <string name="title_activity_settings">Instellingen</string>
+</resources>
