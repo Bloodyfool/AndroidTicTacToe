@@ -1,13 +1,13 @@
 package nl.verhoogenvansetten.androidtictactoe;
 import java.util.*;
 /**
- * Created by bloodyfool on 11-9-16.
+ * See AI.java for documentation on the use of this AI.
  */
 public class Box {
 
     private int state = 0;
 
-    private List<Row> rows = new ArrayList<Row>();
+    private List<Row> rows = new ArrayList<>();
 
     public Box() {
 

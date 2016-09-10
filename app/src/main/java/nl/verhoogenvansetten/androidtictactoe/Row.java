@@ -1,13 +1,13 @@
 package nl.verhoogenvansetten.androidtictactoe;
 import java.util.*;
 /**
- * Created by bloodyfool on 11-9-16.
+ * See AI.java for documentation on the use of this AI.
  */
 public class Row {
 
     private int value = 0;
 
-    private List<Box> boxes = new ArrayList<Box>();
+    private List<Box> boxes = new ArrayList<>();
 
     public Row() {}
 
@@ -33,8 +33,6 @@ public class Row {
                     break;
             }
         }
-        System.out.println("---");
-        System.out.println(ai + loser);
 
         if(ai == 2)
             value = 10000;
@@ -50,8 +48,6 @@ public class Row {
             value = 1;
         else
             value = 10;
-
-        System.out.println(value);
     }
 
     public int getValue() {

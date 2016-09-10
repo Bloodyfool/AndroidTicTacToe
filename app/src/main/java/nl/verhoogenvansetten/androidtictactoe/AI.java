@@ -1,6 +1,21 @@
 package nl.verhoogenvansetten.androidtictactoe;
 /**
- * Created by bloodyfool on 11-9-16.
+ * This is the AI for a TicTacToe game.
+ * To use the AI first call the ai.getInstance method to get an AI object.
+ * To get a move call one of three functions:
+ *      int getRandomMove(int[] board) for a random move
+ *      int getMediumMove(int[] board) for a move that is random unless the ai or player is about to win
+ *      int getImpossibleMove(int[] board) for the best move
+ *
+ * Either off these can be called at any point and all take the current board as input.
+ * The board will be input in the following order:
+ *      0|1|2
+ *      3|4|5
+ *      6|7|8
+ * The array must be populated with 0 for an empty spot 1 for the AI and 2 for the opponent
+ * The return value will be a possible move in the form of an integer between 0 and 8 in the same
+ * configuration as the input screen.
+ *
  */
 public class AI {
 
@@ -57,7 +72,7 @@ public class AI {
     public int getImpossibleMove(int[] board) {
 
         int best = 0;
-        int value = 0;
+        int value;
         int bestValue = 0;
 
         //set board
