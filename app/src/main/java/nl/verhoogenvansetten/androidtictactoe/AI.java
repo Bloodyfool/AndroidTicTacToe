@@ -5,7 +5,7 @@ package nl.verhoogenvansetten.androidtictactoe;
  * To get a move call one of three functions:
  *      int getRandomMove(int[] board) for a random move
  *      int getMediumMove(int[] board) for a move that is random unless the ai or player is about to win
- *      int getImpossibleMove(int[] board) for the best move
+ *      int getHardMove(int[] board) for the shortsighted best move
  *
  * Either off these can be called at any point and all take the current board as input.
  * The board will be input in the following order:
@@ -69,7 +69,7 @@ public class AI {
 
     }
 
-    public int getImpossibleMove(int[] board) {
+    public int getHardMove(int[] board) {
 
         int best = 0;
         int value;
@@ -112,7 +112,7 @@ public class AI {
 
     public int getMediumMove(int[] board) {
 
-        int val = getImpossibleMove(board);
+        int val = getHardMove(board);
 
         if(theValue < 1000)
             return getRandomMove(board);
