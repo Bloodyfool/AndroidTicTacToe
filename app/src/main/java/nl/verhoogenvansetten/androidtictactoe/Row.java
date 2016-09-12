@@ -9,6 +9,8 @@ public class Row {
 
     private List<Box> boxes = new ArrayList<>();
 
+    private int win = 0;
+
     public Row() {}
 
     public void addBox(Box b) {
@@ -20,7 +22,7 @@ public class Row {
     public void setValue() {
 
         int ai = 0;
-        int loser = 0;
+        int opponent = 0;
 
         Iterator<Box> it = boxes.iterator();
         while(it.hasNext()) {
@@ -29,22 +31,25 @@ public class Row {
                     ai += 1;
                     break;
                 case 2:
-                    loser += 1;
+                    opponent += 1;
                     break;
             }
         }
-
+        if(ai == 3)
+            win = 1;
+        else if (opponent == 3)
+            win = 2;
         if(ai == 2)
             value = 10000;
-        else if(loser == 2)
+        else if(opponent == 2)
             value = 1000;
         else if(ai == 1)
-            if(loser == 1)
+            if(opponent == 1)
                 value = 0;
             else
                 value = 100;
         else
-        if(loser == 1)
+        if(opponent == 1)
             value = 1;
         else
             value = 10;
@@ -53,6 +58,12 @@ public class Row {
     public int getValue() {
 
         return value;
+
+    }
+
+    public int getWinner() {
+
+        return win;
 
     }
 

@@ -12,9 +12,15 @@ package nl.verhoogenvansetten.androidtictactoe;
  *      0|1|2
  *      3|4|5
  *      6|7|8
- * The array must be populated with 0 for an empty spot 1 for the AI and 2 for the opponent
+ * The array must be populated with 0 for an empty spot, 1 for the AI, and 2 for the opponent
  * The return value will be a possible move in the form of an integer between 0 and 8 in the same
  * configuration as the input screen.
+ *
+ * Another function of this AI is to check for a winner. To do that call this function:
+ *      int checkWin(int[] board)
+ *
+ * The function takes the board as input and returns the winner as 1 for player 1, 2 for player 2,
+ * and 0 if there is no winner at this time.
  *
  */
 public class AI {
@@ -118,5 +124,22 @@ public class AI {
             return getRandomMove(board);
         else
             return val;
+    }
+
+    public int checkWin(int[] board) {
+
+        //set board
+        for(int i = 0; i < 9; i++)
+            boxes[i].setState(board[i]);
+
+        //set row value
+        for(int i = 0; i < 8; i++)
+            rows[i].setValue();
+
+        for(int i = 0; i < 8; i++)
+            if(rows[i].getWinner() != 0)
+                return rows[i].getWinner();
+        return 0;
+
     }
 }
