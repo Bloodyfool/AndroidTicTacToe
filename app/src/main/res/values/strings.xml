@@ -25,7 +25,7 @@
     </string-array>
 
     <string-array name="pref_colour_list_titles">
-        <item>Blue</item>
+        <item>White</item>
         <item>Black</item>
         <item>Banana</item>
     </string-array>
@@ -33,6 +33,15 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
+    </string-array>
+
+    <string-array name="pref_theme_titles">
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+    <string-array name="pref_theme_values">
+        <item>0</item>
+        <item>1</item>
     </string-array>
 
     <string-array name="pref_text_size_list_titles">
@@ -54,4 +63,5 @@
         <item>X</item>
         <item>O</item>
     </string-array>
+    <string name="pref_theme">Theme</string>
 </resources>

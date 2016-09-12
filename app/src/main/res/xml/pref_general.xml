@@ -1,40 +1,44 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ListPreference
-        android:defaultValue="-1"
+        android:defaultValue="0"
         android:entries="@array/pref_difficulty_list_titles"
         android:entryValues="@array/pref_difficulty_list_values"
         android:key="difficulty_list"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
-        android:title="@string/pref_ai_difficulty" />
+        android:title="@string/pref_ai_difficulty"
+        android:summary="%s" />
 
     <ListPreference
-        android:defaultValue="-1"
-        android:entries="@array/pref_colour_list_titles"
-        android:entryValues="@array/pref_colour_list_values"
-        android:key="colour_list"
+        android:defaultValue="0"
+        android:entries="@array/pref_theme_titles"
+        android:entryValues="@array/pref_theme_values"
+        android:key="theme_list"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
-        android:title="@string/pref_color" />
+        android:title="@string/pref_theme"
+        android:summary="%s" />
 
     <ListPreference
-        android:defaultValue="-1"
+        android:defaultValue="0"
         android:entries="@array/pref_text_size_list_titles"
         android:entryValues="@array/pref_text_size_list_values"
         android:key="text_size_list"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
-        android:title="@string/pref_text_size" />
+        android:title="@string/pref_text_size"
+        android:summary="%s" />
 
     <ListPreference
-        android:defaultValue="-1"
+        android:defaultValue="0"
         android:entries="@array/pref_icon_list_titles"
         android:entryValues="@array/pref_icon_list_values"
         android:key="icon_list"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
-        android:title="@string/pref_icon" />
+        android:title="@string/pref_icon"
+        android:summary="%s" />
 
     <Preference android:title="@string/pref_reset_high_score">
 
