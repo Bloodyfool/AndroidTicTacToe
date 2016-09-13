@@ -25,19 +25,6 @@ public class MainActivityInformationFragment extends Fragment {
     }
 
 
-    public void endabledisableAllButtons(boolean end) {
-        bArray = new Button[]{button1,button2,button3,button4,button5,button6,button7,button8,button9};
-        for (Button b : bArray) {
-            b.setClickable(end);
-            if (end) {
-                b.setEnabled(false);
-            }
-        }
-    }
 
-    public void onButtonReset(View v){
-        onButtonReset = (Button) getView().findViewById(R.id.onButtonReset);
-        endabledisableAllButtons(true);
-    }
 
 }
