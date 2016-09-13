@@ -21,15 +21,29 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/fragment"
-        android:name="nl.verhoogenvansetten.androidtictactoe.MainActivityGameFragment"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:layout="@layout/fragment_game" />
+        android:orientation="vertical">
+
+        <fragment
+            android:layout_marginTop="@dimen/color_item_large"
+            android:id="@+id/fragmentInformation"
+            android:name="nl.verhoogenvansetten.androidtictactoe.MainActivityInformationFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_information"
+            android:gravity="top"/>
+
+        <fragment
+            android:id="@+id/fragmentGame"
+            android:name="nl.verhoogenvansetten.androidtictactoe.MainActivityGameFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:layout="@layout/fragment_game"
+            android:gravity="bottom"/>
+    </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -38,5 +52,4 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:src="@android:drawable/ic_dialog_email" />
-
 </android.support.design.widget.CoordinatorLayout>
