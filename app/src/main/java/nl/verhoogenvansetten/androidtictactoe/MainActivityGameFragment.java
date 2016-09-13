@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.Toast;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -19,4 +22,8 @@ public class MainActivityGameFragment extends Fragment {
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_game, container, false);
     }
+
+
+
+
 }
