@@ -15,7 +15,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp">
+        android:layout_marginRight="5dp"
+        android:id="@+id/relativeLayout">
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,23 +34,44 @@
             android:id="@+id/amountOfGamesPlayed"
             android:textSize="16dp"
             android:text="10"
-            android:layout_paddingTop="50dp"
             android:layout_below="@+id/amountOfGamesPlayedText"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
-
-        <Button
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:text="Reset"
-            android:id="@+id/onButtonReset"
-            android:onClick="onButtonReset"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/amountOfGamesPlayedText"
-            android:layout_marginLeft="20dp"/>
-
     </RelativeLayout>
 
 
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingLeft="110dp">
+        <RadioButton
+            android:id="@+id/radioButtonO"
+            android:text="O"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onRadioButtonClicked"
+            android:checked="true"/>
+        <RadioButton
+            android:id="@+id/radioButtonX"
+            android:text="X"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onRadioButtonClicked"/>
+    </RadioGroup>
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="Reset"
+        android:id="@+id/onButtonReset"
+        android:onClick="onButtonReset"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

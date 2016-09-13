@@ -2,21 +2,23 @@ package nl.verhoogenvansetten.androidtictactoe;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button button1,button2,button3,button4,button5,button6,button7,button8,button9,onButtonReset;
-    Button[] bArray = new Button[]{button1,button2,button3,button4,button5,button6,button7,button8,button9};
+    Button button1, button2, button3, button4, button5, button6, button7, button8, button9, onButtonReset;
+    Button[] bArray;
+    char player;
+    boolean turn = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +31,22 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        bArray = new Button[]{button1, button2, button3, button4, button5,
+                button6, button7, button8, button9};
+
+        RadioGroup group = (RadioGroup) findViewById(R.id.radioGroup);
+        RadioButton radioButtonO = (RadioButton) findViewById(R.id.radioButtonO);
+        RadioButton radioButtonX = (RadioButton) findViewById(R.id.radioButtonX);
+        button1 = (Button) findViewById(R.id.button1);
+        button2 = (Button) findViewById(R.id.button2);
+        button3 = (Button) findViewById(R.id.button3);
+        button4 = (Button) findViewById(R.id.button4);
+        button5 = (Button) findViewById(R.id.button5);
+        button6 = (Button) findViewById(R.id.button6);
+        button7 = (Button) findViewById(R.id.button7);
+        button8 = (Button) findViewById(R.id.button8);
+        button9 = (Button) findViewById(R.id.button9);
+        onButtonReset = (Button) findViewById(R.id.onButtonReset);
     }
 
     @Override
@@ -61,13 +71,51 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void onClick(View v){
-        Toast.makeText(getApplicationContext(),"X Wins!", Toast.LENGTH_SHORT).show();
+    /*
+    private void setMove(char player, int location) {
+        mBoardButtons[location].setEnabled(false);
+        if (player == mGameFragment.PLAYER_ONE)
+            mBoardButtons[location].setBackgroundDrawable(getResources().getDrawable(R.drawable.x));
+        else
+            mBoardButtons[location].setBackgroundDrawable(getResources().getDrawable(R.drawable.o));
+    }
+*/
+
+    public void onClick(View v) {
+        Button b = (Button)v;
+        if(turn) {
+            if (player == 'O')
+                b.setText("O");
+            else if (player == 'X')
+                b.setText("X");
+        }
+        b.setClickable(false);
     }
 
-    public void onButtonReset(View v){
-        for (Button b : bArray) {
+    public void onButtonReset(View v) {
+        for(Button b : bArray){
             b.setText("");
+            b.setEnabled(true);
+        }
+            // b.setBackgroundDrawable(getResources().getDrawable(R.drawable.blank));
+    }
+
+    public void onRadioButtonClicked(View v) {
+        boolean checked = ((RadioButton) v).isChecked();
+
+        switch (v.getId()){
+            case R.id.radioButtonO:
+                if(checked){
+                    player = 'O';
+                    Toast.makeText(getApplicationContext(),"You are O", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.radioButtonX:
+                if(checked) {
+                    player = 'X';
+                    Toast.makeText(getApplicationContext(), "You are X", Toast.LENGTH_SHORT).show();
+                }
+                break;
         }
     }
 }

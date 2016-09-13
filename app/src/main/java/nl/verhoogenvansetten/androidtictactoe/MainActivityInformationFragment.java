@@ -11,10 +11,6 @@ import android.widget.Button;
  * A placeholder fragment containing a simple view.
  */
 public class MainActivityInformationFragment extends Fragment {
-
-    Button button1,button2,button3,button4,button5,button6,button7,button8,button9,onButtonReset;
-    Button[] bArray;
-
     public MainActivityInformationFragment() {
     }
 
