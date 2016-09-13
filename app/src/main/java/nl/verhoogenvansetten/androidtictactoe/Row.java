@@ -23,6 +23,7 @@ public class Row {
 
         int ai = 0;
         int opponent = 0;
+        win = 0;
 
         Iterator<Box> it = boxes.iterator();
         while(it.hasNext()) {
