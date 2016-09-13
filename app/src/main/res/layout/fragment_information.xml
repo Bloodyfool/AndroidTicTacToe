@@ -10,34 +10,47 @@
     tools:showIn="@layout/activity_main">
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Game play :"
-            android:textSize="@dimen/activity_horizontal_margin"/>
+            android:id="@+id/amountOfGamesPlayedText"
+            android:text="Games played :"
+            android:textSize="16dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/howManyGamePlayed"
-            android:textSize="@dimen/activity_horizontal_margin"/>
+            android:id="@+id/amountOfGamesPlayed"
+            android:textSize="16dp"
+            android:text="10"
+            android:layout_paddingTop="50dp"
+            android:layout_below="@+id/amountOfGamesPlayedText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-    </LinearLayout>
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:text="Reset"
+            android:id="@+id/onButtonReset"
+            android:onClick="onButtonReset"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/amountOfGamesPlayedText"
+            android:layout_marginLeft="20dp"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reset"
-        android:id="@+id/onButtonReset"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="onButtonReset"/>
+    </RelativeLayout>
+
+
 
 
 </RelativeLayout>

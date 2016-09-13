@@ -27,7 +27,7 @@
         android:orientation="vertical">
 
         <fragment
-            android:layout_marginTop="@dimen/color_item_large"
+            android:layout_marginTop="80dp"
             android:id="@+id/fragmentInformation"
             android:name="nl.verhoogenvansetten.androidtictactoe.MainActivityInformationFragment"
             android:layout_width="match_parent"
@@ -45,11 +45,5 @@
             android:gravity="bottom"/>
     </LinearLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+
 </android.support.design.widget.CoordinatorLayout>
