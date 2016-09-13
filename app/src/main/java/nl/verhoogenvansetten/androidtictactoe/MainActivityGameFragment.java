@@ -14,8 +14,6 @@ import android.widget.Toast;
  */
 public class MainActivityGameFragment extends Fragment {
 
-
-
     public MainActivityGameFragment() {
     }
 

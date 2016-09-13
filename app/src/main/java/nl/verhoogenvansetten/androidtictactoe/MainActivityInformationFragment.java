@@ -12,15 +12,32 @@ import android.widget.Button;
  */
 public class MainActivityInformationFragment extends Fragment {
 
+    Button button1,button2,button3,button4,button5,button6,button7,button8,button9,onButtonReset;
+    Button[] bArray;
 
     public MainActivityInformationFragment() {
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_information, container, false);
+    }
+
+
+    public void endabledisableAllButtons(boolean end) {
+        bArray = new Button[]{button1,button2,button3,button4,button5,button6,button7,button8,button9};
+        for (Button b : bArray) {
+            b.setClickable(end);
+            if (end) {
+                b.setEnabled(false);
+            }
+        }
+    }
+
+    public void onButtonReset(View v){
+        onButtonReset = (Button) getView().findViewById(R.id.onButtonReset);
+        endabledisableAllButtons(true);
     }
 
 }
