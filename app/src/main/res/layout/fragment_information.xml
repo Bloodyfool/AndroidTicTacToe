@@ -11,48 +11,17 @@
     tools:showIn="@layout/activity_main"
     android:orientation="horizontal">
 
-<RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/relativeLayout">
-
-
-    <LinearLayout
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:id="@+id/LinerLayout">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/amountOfGamesPlayedText"
-            android:text="Games played :"
-            android:textSize="16dp"
-            android:layout_alignBottom="@+id/onButtonReset"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/amountOfGamesPlayed"
-            android:textSize="16dp"
-            android:text="10"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-    </LinearLayout>
-
-</RelativeLayout>
-
+        android:id="@+id/txtvGamesPlayed"
+        android:text="@string/games_played"
+        android:textSize="16sp" />
 
     <Button
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:text="Reset"
+        android:text="@string/reset"
         android:id="@+id/onButtonReset"
         android:onClick="onButtonReset"
         android:layout_alignParentTop="true"
@@ -64,11 +33,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/relativeLayout"
+        android:layout_below="@+id/txtvGamesPlayed"
         android:layout_centerHorizontal="true">
+
         <RadioButton
             android:id="@+id/radioButtonO"
-            android:text="O"
+            android:text="@string/o"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
@@ -76,7 +46,7 @@
 
         <RadioButton
             android:id="@+id/radioButtonX"
-            android:text="X"
+            android:text="@string/x"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

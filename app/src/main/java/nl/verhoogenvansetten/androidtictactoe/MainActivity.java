@@ -2,7 +2,6 @@ package nl.verhoogenvansetten.androidtictactoe;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
@@ -12,12 +11,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     Button button1, button2, button3, button4, button5, button6, button7, button8, button9, onButtonReset;
     Button[] bArray;
+    TextView txtvGamesPlayed;
     char player='O';
     boolean turn = true;
     AI ai = AI.getInstance();
@@ -33,8 +34,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        txtvGamesPlayed = (TextView) findViewById(R.id.txtvGamesPlayed);
+        txtvGamesPlayed.append(" 0");
 
-
+        bArray = new Button[]{button1, button2, button3, button4, button5,
+                button6, button7, button8, button9};
 
         RadioGroup group = (RadioGroup) findViewById(R.id.radioGroup);
         RadioButton radioButtonO = (RadioButton) findViewById(R.id.radioButtonO);
@@ -71,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             startActivity(new Intent(this, SettingsActivity.class));
             return true;

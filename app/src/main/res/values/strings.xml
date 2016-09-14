@@ -64,4 +64,8 @@
         <item>O</item>
     </string-array>
     <string name="pref_theme">Theme</string>
+    <string name="reset" translatable="false">Reset</string>
+    <string name="o" translatable="false">O</string>
+    <string name="x" translatable="false">X</string>
+    <string name="games_played">Games played:</string>
 </resources>
