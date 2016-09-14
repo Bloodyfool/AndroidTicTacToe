@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button button1, button2, button3, button4, button5, button6, button7, button8, button9, onButtonReset;
     Button[] bArray;
-    char player;
+    char player='O';
     boolean turn = true;
 
     @Override
@@ -37,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
         RadioGroup group = (RadioGroup) findViewById(R.id.radioGroup);
         RadioButton radioButtonO = (RadioButton) findViewById(R.id.radioButtonO);
         RadioButton radioButtonX = (RadioButton) findViewById(R.id.radioButtonX);
+
+        group.check(R.id.radioButtonO);
+
         button1 = (Button) findViewById(R.id.button1);
         button2 = (Button) findViewById(R.id.button2);
         button3 = (Button) findViewById(R.id.button3);
@@ -92,10 +95,10 @@ public class MainActivity extends AppCompatActivity {
         b.setClickable(false);
     }
 
-    public void onButtonReset(View v) {
+    public void onButtonReset(boolean enable) {
         for(Button b : bArray){
             b.setText("");
-            b.setEnabled(true);
+            b.setEnabled(enable);
         }
             // b.setBackgroundDrawable(getResources().getDrawable(R.drawable.blank));
     }
@@ -115,6 +118,10 @@ public class MainActivity extends AppCompatActivity {
                     player = 'X';
                     Toast.makeText(getApplicationContext(), "You are X", Toast.LENGTH_SHORT).show();
                 }
+                break;
+            default:
+                player = 'O';
+                Toast.makeText(getApplicationContext(),"You are O", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
