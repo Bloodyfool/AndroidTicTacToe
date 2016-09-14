@@ -104,8 +104,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void aiMove() {
-
+        String comp;
         int move = ai.getHardMove(getBoard());
+        if(player == 'O')
+            comp = "X";
+        else
+            comp = "O";
+            bArray[move].setText(comp);
 
     }
 
