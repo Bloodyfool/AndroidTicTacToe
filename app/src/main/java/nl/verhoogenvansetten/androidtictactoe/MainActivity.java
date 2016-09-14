@@ -74,16 +74,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /*
-    private void setMove(char player, int location) {
-        mBoardButtons[location].setEnabled(false);
-        if (player == mGameFragment.PLAYER_ONE)
-            mBoardButtons[location].setBackgroundDrawable(getResources().getDrawable(R.drawable.x));
-        else
-            mBoardButtons[location].setBackgroundDrawable(getResources().getDrawable(R.drawable.o));
-    }
-*/
-
     public void onClick(View v) {
         Button b = (Button)v;
         if(turn) {
@@ -96,11 +86,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onButtonReset(View v) {
-        for(Button b : bArray){
-            b.setText("");
-            b.setEnabled(true);
-        }
-            // b.setBackgroundDrawable(getResources().getDrawable(R.drawable.blank));
+        clickable(true);
+    }
+
+    public void clickable(boolean en){
+        button1.setText("");
+        button2.setText("");
+        button3.setText("");
+        button4.setText("");
+        button5.setText("");
+        button6.setText("");
+        button7.setText("");
+        button8.setText("");
+        button9.setText("");
+
+        button1.setClickable(en);
+        button2.setClickable(en);
+        button3.setClickable(en);
+        button4.setClickable(en);
+        button5.setClickable(en);
+        button6.setClickable(en);
+        button7.setClickable(en);
+        button8.setClickable(en);
+        button9.setClickable(en);
     }
 
     public void onRadioButtonClicked(View v) {
@@ -111,17 +119,15 @@ public class MainActivity extends AppCompatActivity {
                 if(checked){
                     player = 'O';
                     Toast.makeText(getApplicationContext(),"You are O", Toast.LENGTH_SHORT).show();
+                    clickable(true);
                 }
                 break;
             case R.id.radioButtonX:
                 if(checked) {
                     player = 'X';
                     Toast.makeText(getApplicationContext(), "You are X", Toast.LENGTH_SHORT).show();
+                    clickable(true);
                 }
-                break;
-            default:
-                player = 'O';
-                Toast.makeText(getApplicationContext(),"You are O", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
