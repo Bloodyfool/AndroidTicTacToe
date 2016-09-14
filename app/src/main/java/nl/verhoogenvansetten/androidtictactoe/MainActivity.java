@@ -95,10 +95,10 @@ public class MainActivity extends AppCompatActivity {
         b.setClickable(false);
     }
 
-    public void onButtonReset(boolean enable) {
+    public void onButtonReset(View v) {
         for(Button b : bArray){
             b.setText("");
-            b.setEnabled(enable);
+            b.setEnabled(true);
         }
             // b.setBackgroundDrawable(getResources().getDrawable(R.drawable.blank));
     }

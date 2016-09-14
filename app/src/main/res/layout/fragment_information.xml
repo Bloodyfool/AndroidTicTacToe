@@ -11,34 +11,11 @@
     tools:showIn="@layout/activity_main"
     android:orientation="horizontal">
 
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/relativeLayout">
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_alignParentBottom="@+id/onButtonReset"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_gravity="center">
-        <RadioButton
-            android:id="@+id/radioButtonO"
-            android:text="O"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:checked="true"/>
-
-        <RadioButton
-            android:id="@+id/radioButtonX"
-            android:text="X"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="onRadioButtonClicked"/>
-
-    </RadioGroup>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -46,7 +23,7 @@
         android:orientation="horizontal"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:id="@+id/relativeLayout">
+        android:id="@+id/LinerLayout">
 
         <TextView
             android:layout_width="wrap_content"
@@ -69,6 +46,7 @@
             android:layout_alignParentStart="true" />
     </LinearLayout>
 
+</RelativeLayout>
 
 
     <Button
@@ -80,5 +58,29 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_centerHorizontal="true">
+        <RadioButton
+            android:id="@+id/radioButtonO"
+            android:text="O"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/radioButtonX"
+            android:text="X"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onRadioButtonClicked"/>
+    </RadioGroup>
 
 </RelativeLayout>
