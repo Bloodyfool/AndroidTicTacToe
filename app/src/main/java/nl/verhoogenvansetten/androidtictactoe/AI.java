@@ -132,8 +132,6 @@ public class AI {
             if (board[i] == 0)
                 stale = false;
         }
-        if(stale)
-            return 3;
 
         //set row value
         for(int i = 0; i < 8; i++)
@@ -142,6 +140,8 @@ public class AI {
         for(int i = 0; i < 8; i++)
             if(rows[i].getWinner() != 0)
                 return rows[i].getWinner();
+        if(stale)
+            return 3;
         return 0;
 
     }
