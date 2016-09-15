@@ -184,9 +184,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 3:
                     Toast.makeText(getApplicationContext(), R.string.stalemate, Toast.LENGTH_SHORT).show();
-                    resetBoard(false);
-                    return true;
-
+                    break;
             }
             resetBoard(false);
             return true;
