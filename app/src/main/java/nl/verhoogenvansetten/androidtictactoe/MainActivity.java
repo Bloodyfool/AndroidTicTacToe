@@ -214,6 +214,28 @@ public class MainActivity extends AppCompatActivity {
         gameOver = false;
     }
 
+    public void onRadioButtonClicked(View v) {
+        boolean checked = ((RadioButton) v).isChecked();
+
+        gameOver = false;
+        switch (v.getId()){
+            case R.id.radioButtonO:
+                if(checked){
+                    player = 'O';
+                    Toast.makeText(getApplicationContext(), R.string.player_o, Toast.LENGTH_SHORT).show();
+                    resetBoard(true);
+                }
+                break;
+            case R.id.radioButtonX:
+                if(checked) {
+                    player = 'X';
+                    Toast.makeText(getApplicationContext(), R.string.player_x, Toast.LENGTH_SHORT).show();
+                    resetBoard(true);
+                }
+                break;
+        }
+    }
+
     public void resetBoard(boolean en){
         if(en) {
             button1.setText("");
@@ -269,27 +291,6 @@ public class MainActivity extends AppCompatActivity {
         button7.setText(prefs.getString("board7", ""));
         button8.setText(prefs.getString("board8", ""));
         button9.setText(prefs.getString("board9", ""));
-    }
-
-    public void onRadioButtonClicked(View v) {
-        boolean checked = ((RadioButton) v).isChecked();
-
-        switch (v.getId()){
-            case R.id.radioButtonO:
-                if(checked){
-                    player = 'O';
-                    Toast.makeText(getApplicationContext(), R.string.player_o, Toast.LENGTH_SHORT).show();
-                    resetBoard(true);
-                }
-                break;
-            case R.id.radioButtonX:
-                if(checked) {
-                    player = 'X';
-                    Toast.makeText(getApplicationContext(), R.string.player_x, Toast.LENGTH_SHORT).show();
-                    resetBoard(true);
-                }
-                break;
-        }
     }
 
     private void setColour(int colour) {
