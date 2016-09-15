@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
     Button[] bArray;
     TextView txtvGamesPlayed;
     SharedPreferences prefs;
-    int gamesPlayed;
     char player='O';
     boolean turn = true;
+    boolean gameOver = false;
     AI ai = AI.getInstance();
 
     @Override
@@ -37,10 +37,9 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        gamesPlayed = prefs.getInt("games_played", 0);
 
         txtvGamesPlayed = (TextView) findViewById(R.id.txtvGamesPlayed);
-        txtvGamesPlayed.append(' ' + Integer.toString(gamesPlayed));
+        setGamesPlayed(prefs.getInt("games_played", 0));
 
         bArray = new Button[]{button1, button2, button3, button4, button5,
                 button6, button7, button8, button9};
@@ -160,6 +159,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean winCheck() {
         int win = ai.checkWin(getBoard());
         if(win != 0) {
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt("games_played", prefs.getInt("games_played", 0)+1);
+            editor.apply();
+            setGamesPlayed(prefs.getInt("games_played", 0));
+            gameOver = true;
             switch (win) {
                 case 1:
                     // You lose
@@ -194,6 +198,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onButtonReset(View v) {
         resetBoard(true);
+        gameOver = false;
     }
 
     public void resetBoard(boolean en){
@@ -218,6 +223,13 @@ public class MainActivity extends AppCompatActivity {
         button7.setClickable(en);
         button8.setClickable(en);
         button9.setClickable(en);
+
+        if (!gameOver) {
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt("games_played", prefs.getInt("games_played", 0)+1);
+            editor.apply();
+            setGamesPlayed(prefs.getInt("games_played", 0));
+        }
     }
 
     public void onRadioButtonClicked(View v) {
@@ -263,5 +275,9 @@ public class MainActivity extends AppCompatActivity {
         button7.setTextSize(size);
         button8.setTextSize(size);
         button9.setTextSize(size);
+    }
+
+    private void setGamesPlayed(int games) {
+        txtvGamesPlayed.setText(String.format(getString(R.string.games_played), games));
     }
 }

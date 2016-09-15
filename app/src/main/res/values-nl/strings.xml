@@ -9,7 +9,7 @@
     <string name="pref_ai_difficulty">Moeilijkheidsgraad computer</string>
     <string name="pref_color">Achtergrondkleur</string>
     <string name="pref_theme">Thema</string>
-    <string name="games_played">Spellen gespeeld: </string>
+    <string name="games_played">Spellen gespeeld: %s</string>
     <string name="game_lost">Je hebt verloren</string>
     <string name="game_won">Je hebt gewonnen</string>
     <string name="player_o">Je bent nu O</string>

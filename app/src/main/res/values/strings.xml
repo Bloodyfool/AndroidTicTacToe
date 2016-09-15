@@ -68,7 +68,7 @@
     <string name="reset" translatable="false">Reset</string>
     <string name="o" translatable="false">O</string>
     <string name="x" translatable="false">X</string>
-    <string name="games_played">Games played:</string>
+    <string name="games_played">Games played: %s</string>
     <string name="game_won">You win</string>
     <string name="game_lost">You lose</string>
     <string name="player_o">You are O</string>
