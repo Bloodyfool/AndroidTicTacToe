@@ -10,4 +10,9 @@
     <string name="pref_color">Achtergrondkleur</string>
     <string name="pref_theme">Thema</string>
     <string name="games_played">Spellen gespeeld: </string>
+    <string name="game_lost">Je hebt verloren</string>
+    <string name="game_won">Je hebt gewonnen</string>
+    <string name="player_o">Je bent nu O</string>
+    <string name="player_x">Je bent nu X</string>
+    <string name="pref_text_colour">Tekstkleur</string>
 </resources>

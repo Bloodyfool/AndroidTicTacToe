@@ -75,6 +75,23 @@ public class AI {
 
     }
 
+    public int getRandomMove(int[] board) {
+        while(true) {
+            int i = (int)(Math.random()*9);
+            if(board[i] == 0)
+                return i;
+        }
+    }
+
+    public int getMediumMove(int[] board) {
+        int val = getHardMove(board);
+
+        if(theValue < 1000)
+            return getRandomMove(board);
+        else
+            return val;
+    }
+
     public int getHardMove(int[] board) {
 
         int best = 0;
@@ -105,25 +122,6 @@ public class AI {
         //return best box
         return best;
 
-    }
-
-    public int getRandomMove(int[] board) {
-
-        while(true) {
-            int i = (int)(Math.random()*9);
-            if(board[i] == 0)
-                return i;
-        }
-    }
-
-    public int getMediumMove(int[] board) {
-
-        int val = getHardMove(board);
-
-        if(theValue < 1000)
-            return getRandomMove(board);
-        else
-            return val;
     }
 
     public int checkWin(int[] board) {

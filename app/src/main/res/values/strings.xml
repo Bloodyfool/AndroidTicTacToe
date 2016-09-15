@@ -19,20 +19,9 @@
         <item>Awake and had breakfast</item>
     </string-array>
     <string-array name="pref_difficulty_list_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
-    <string-array name="pref_colour_list_titles">
-        <item>White</item>
-        <item>Black</item>
-        <item>Banana</item>
-    </string-array>
-    <string-array name="pref_colour_list_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
+        <item>easy</item>
+        <item>medium</item>
+        <item>hard</item>
     </string-array>
 
     <string-array name="pref_theme_titles">
@@ -50,9 +39,20 @@
         <item>Wessel</item>
     </string-array>
     <string-array name="pref_text_size_list_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
+        <item>40</item>
+        <item>60</item>
+        <item>80</item>
+    </string-array>
+
+    <string-array name="pref_text_colour_list_titles">
+        <item>Black</item>
+        <item>Yellow</item>
+        <item>Red</item>
+    </string-array>
+    <string-array name="pref_text_colour_list_values">
+        <item>black</item>
+        <item>yellow</item>
+        <item>red</item>
     </string-array>
 
     <string-array name="pref_icon_list_titles">
@@ -63,9 +63,15 @@
         <item>X</item>
         <item>O</item>
     </string-array>
+
     <string name="pref_theme">Theme</string>
     <string name="reset" translatable="false">Reset</string>
     <string name="o" translatable="false">O</string>
     <string name="x" translatable="false">X</string>
     <string name="games_played">Games played:</string>
+    <string name="game_won">You win</string>
+    <string name="game_lost">You lose</string>
+    <string name="player_o">You are O</string>
+    <string name="player_x">You are X</string>
+    <string name="pref_text_colour">Text colour</string>
 </resources>

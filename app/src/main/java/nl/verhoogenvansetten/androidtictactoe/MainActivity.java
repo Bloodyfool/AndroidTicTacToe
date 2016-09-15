@@ -1,6 +1,7 @@
 package nl.verhoogenvansetten.androidtictactoe;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
@@ -19,14 +20,15 @@ public class MainActivity extends AppCompatActivity {
     Button button1, button2, button3, button4, button5, button6, button7, button8, button9, onButtonReset;
     Button[] bArray;
     TextView txtvGamesPlayed;
+    SharedPreferences prefs;
+    int gamesPlayed;
     char player='O';
     boolean turn = true;
     AI ai = AI.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (PreferenceManager.getDefaultSharedPreferences(this)
-                .getString("theme_list", "0").equals("1")) {
+        if (PreferenceManager.getDefaultSharedPreferences(this).getString("theme_list", "0").equals("1")) {
             setTheme(R.style.AppTheme_Dark_NoActionBar);
         }
         super.onCreate(savedInstanceState);
@@ -34,8 +36,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        gamesPlayed = prefs.getInt("games_played", 0);
+
         txtvGamesPlayed = (TextView) findViewById(R.id.txtvGamesPlayed);
-        txtvGamesPlayed.append(" 0");
+        txtvGamesPlayed.append(' ' + Integer.toString(gamesPlayed));
 
         bArray = new Button[]{button1, button2, button3, button4, button5,
                 button6, button7, button8, button9};
@@ -82,6 +87,27 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // Instant-apply settings, sort of
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        String colour = prefs.getString("text_colour_list", "black");
+        switch (colour) {
+            case "black":
+                setColour(getResources().getColor(R.color.md_black));
+                break;
+            case "yellow":
+                setColour(getResources().getColor(R.color.md_yellow_500));
+                break;
+            default:
+                setColour(getResources().getColor(R.color.md_red_500));
+                break;
+        }
+
+        setSize(Float.parseFloat(prefs.getString("text_size_list", "40")));
+    }
+
     /*
     private void setMove(char player, int location) {
         mBoardButtons[location].setEnabled(false);
@@ -108,27 +134,40 @@ public class MainActivity extends AppCompatActivity {
 
     public void aiMove() {
         String comp;
-        int move = ai.getHardMove(getBoard());
+        String difficulty = prefs.getString("difficulty_list", "easy");
+        int move;
+
+        switch (difficulty) {
+            case "easy":
+                move = ai.getRandomMove(getBoard());
+                break;
+            case "medium":
+                move = ai.getMediumMove(getBoard());
+                break;
+            default:
+                move = ai.getHardMove(getBoard());
+                break;
+        }
+
         if(player == 'O')
             comp = "X";
         else
             comp = "O";
-            bArray[move].setText(comp);
 
+        bArray[move].setText(comp);
     }
 
     public boolean winCheck() {
-
         int win = ai.checkWin(getBoard());
         if(win != 0) {
             switch (win) {
                 case 1:
-                    Toast.makeText(getApplicationContext(), "You lose", Toast.LENGTH_SHORT).show();
-                    //you lose
+                    // You lose
+                    Toast.makeText(getApplicationContext(), R.string.game_lost, Toast.LENGTH_SHORT).show();
                     break;
                 case 2:
-                    //you win
-                    Toast.makeText(getApplicationContext(), "You win", Toast.LENGTH_SHORT).show();
+                    // You win
+                    Toast.makeText(getApplicationContext(), R.string.game_won, Toast.LENGTH_SHORT).show();
                     break;
             }
             resetBoard(false);
@@ -141,10 +180,10 @@ public class MainActivity extends AppCompatActivity {
         Button b = (Button)v;
         if(turn) {
             if (player == 'O') {
-                b.setText("O");
+                b.setText(R.string.o);
             }
             else if (player == 'X') {
-                b.setText("X");
+                b.setText(R.string.x);
             }
         }
         b.setClickable(false);
@@ -188,17 +227,41 @@ public class MainActivity extends AppCompatActivity {
             case R.id.radioButtonO:
                 if(checked){
                     player = 'O';
-                    Toast.makeText(getApplicationContext(),"You are O", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.player_o, Toast.LENGTH_SHORT).show();
                     resetBoard(true);
                 }
                 break;
             case R.id.radioButtonX:
                 if(checked) {
                     player = 'X';
-                    Toast.makeText(getApplicationContext(), "You are X", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.player_x, Toast.LENGTH_SHORT).show();
                     resetBoard(true);
                 }
                 break;
         }
+    }
+
+    private void setColour(int colour) {
+        button1.setTextColor(colour);
+        button2.setTextColor(colour);
+        button3.setTextColor(colour);
+        button4.setTextColor(colour);
+        button5.setTextColor(colour);
+        button6.setTextColor(colour);
+        button7.setTextColor(colour);
+        button8.setTextColor(colour);
+        button9.setTextColor(colour);
+    }
+
+    private void setSize(float size) {
+        button1.setTextSize(size);
+        button2.setTextSize(size);
+        button3.setTextSize(size);
+        button4.setTextSize(size);
+        button5.setTextSize(size);
+        button6.setTextSize(size);
+        button7.setTextSize(size);
+        button8.setTextSize(size);
+        button9.setTextSize(size);
     }
 }
