@@ -8,34 +8,24 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivityGameFragment"
-    tools:showIn="@layout/activity_main"
-    android:orientation="horizontal">
+    tools:showIn="@layout/activity_main">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txtvGamesPlayed"
         android:text="@string/games_played"
-        android:textSize="16sp" />
-
-    <Button
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:text="@string/reset"
-        android:id="@+id/onButtonReset"
-        android:onClick="onButtonReset"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
+        android:textSize="16sp"
+        android:layout_centerHorizontal="true"/>
 
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/txtvGamesPlayed"
-        android:layout_centerHorizontal="true">
-
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/txtvGamesPlayed"
+        android:layout_marginTop="16dp">
         <RadioButton
             android:id="@+id/radioButtonO"
             android:text="@string/o"
@@ -52,5 +42,15 @@
             android:layout_weight="1"
             android:onClick="onRadioButtonClicked"/>
     </RadioGroup>
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="@string/reset"
+        android:id="@+id/onButtonReset"
+        android:onClick="onButtonReset"
+        android:layout_below="@id/radioGroup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
 
 </RelativeLayout>
