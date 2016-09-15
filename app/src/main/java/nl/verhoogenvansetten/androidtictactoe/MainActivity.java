@@ -38,9 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         txtvGamesPlayed = (TextView) findViewById(R.id.txtvGamesPlayed);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt("games_played", prefs.getInt("games_played", 0)+1);
-        editor.apply();
         setGamesPlayed(prefs.getInt("games_played", 0));
 
         bArray = new Button[]{button1, button2, button3, button4, button5,
@@ -88,6 +85,13 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        saveState();
+    }
+
     // Instant-apply settings, sort of
     @Override
     public void onResume() {
@@ -107,6 +111,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         setSize(Float.parseFloat(prefs.getString("text_size_list", "40")));
+
+        restoreState();
     }
 
     /*
@@ -233,6 +239,32 @@ public class MainActivity extends AppCompatActivity {
             editor.apply();
             setGamesPlayed(prefs.getInt("games_played", 0));
         }
+    }
+
+    private void saveState() {
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("board1", button1.getText().toString());
+        editor.putString("board2", button2.getText().toString());
+        editor.putString("board3", button3.getText().toString());
+        editor.putString("board4", button4.getText().toString());
+        editor.putString("board5", button5.getText().toString());
+        editor.putString("board6", button6.getText().toString());
+        editor.putString("board7", button7.getText().toString());
+        editor.putString("board8", button8.getText().toString());
+        editor.putString("board9", button9.getText().toString());
+        editor.apply();
+    }
+
+    private void restoreState() {
+        button1.setText(prefs.getString("board1", ""));
+        button2.setText(prefs.getString("board2", ""));
+        button3.setText(prefs.getString("board3", ""));
+        button4.setText(prefs.getString("board4", ""));
+        button5.setText(prefs.getString("board5", ""));
+        button6.setText(prefs.getString("board6", ""));
+        button7.setText(prefs.getString("board7", ""));
+        button8.setText(prefs.getString("board8", ""));
+        button9.setText(prefs.getString("board9", ""));
     }
 
     public void onRadioButtonClicked(View v) {
