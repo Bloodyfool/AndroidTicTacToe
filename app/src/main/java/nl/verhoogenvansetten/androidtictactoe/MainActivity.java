@@ -37,8 +37,10 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
-
         txtvGamesPlayed = (TextView) findViewById(R.id.txtvGamesPlayed);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("games_played", prefs.getInt("games_played", 0)+1);
+        editor.apply();
         setGamesPlayed(prefs.getInt("games_played", 0));
 
         bArray = new Button[]{button1, button2, button3, button4, button5,
@@ -153,6 +155,7 @@ public class MainActivity extends AppCompatActivity {
         else
             comp = "O";
 
+        bArray[move].setClickable(false);
         bArray[move].setText(comp);
     }
 

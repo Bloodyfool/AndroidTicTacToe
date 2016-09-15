@@ -36,6 +36,7 @@ public class Box {
 
         int v = 0;
 
+        // TODO replace while with foreach?
         Iterator<Row> it = rows.iterator();
         while(it.hasNext()) {
             v += it.next().getValue();
