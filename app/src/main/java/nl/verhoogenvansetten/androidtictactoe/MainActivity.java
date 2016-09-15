@@ -182,6 +182,11 @@ public class MainActivity extends AppCompatActivity {
                     // You win
                     Toast.makeText(getApplicationContext(), R.string.game_won, Toast.LENGTH_SHORT).show();
                     break;
+                case 3:
+                    Toast.makeText(getApplicationContext(), R.string.stalemate, Toast.LENGTH_SHORT).show();
+                    resetBoard(false);
+                    return true;
+
             }
             resetBoard(false);
             return true;
@@ -203,6 +208,7 @@ public class MainActivity extends AppCompatActivity {
         if (winCheck())
             return;
         aiMove();
+        winCheck();
     }
 
     public void onButtonReset(View v) {

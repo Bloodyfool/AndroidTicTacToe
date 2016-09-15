@@ -125,10 +125,15 @@ public class AI {
     }
 
     public int checkWin(int[] board) {
-
+        boolean stale = true;
         //set board
-        for(int i = 0; i < 9; i++)
+        for(int i = 0; i < 9; i++) {
             boxes[i].setState(board[i]);
+            if (board[i] == 0)
+                stale = false;
+        }
+        if(stale)
+            return 3;
 
         //set row value
         for(int i = 0; i < 8; i++)
